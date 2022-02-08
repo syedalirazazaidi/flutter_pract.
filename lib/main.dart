@@ -14,156 +14,252 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.yellow.shade100,
         body: SafeArea(
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.center,
-             mainAxisAlignment: MainAxisAlignment.center,
-
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                child: (Card(
-                    color: Colors.white,
-                    shadowColor: Colors.white,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 90,
-                          width: 90,
-                          margin: new EdgeInsets.symmetric(vertical: 15.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(150),
-                              border: Border.all(
-                                  color: Colors.cyan.shade800,
-                                  width: 3 // red as border color
-                                  ),
-                              image: DecorationImage(
-                                image: AssetImage('image/mypic.jpg'),
-                                fit: BoxFit.cover,
-                              )),
-                        ),
-                        Text(
-                          "Ali-Raza",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.black38,
-                            fontFamily: 'Quintessential',
-                          ),
-                        ),
-                        Text(
-                          "Software Engineer",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.grey,
-                            fontFamily: 'Quintessential',
-                          ),
-                        ),
-                        Container(
-                          height: 35,
-                          width: 145,
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                width: 3.0,
-                                color: Colors.yellow.shade200,
-                              ),
-                            ),
-                            // color: Colors.white,
-                          ),
-                        ),
-                        Container(
-                          child: Icon(
-                            Icons.format_quote_outlined,
-                            color: Colors.yellow,
-                            size: 42,
-                          ),
-                        ),
-                        Container(
-                            child: Padding(
-                          padding: const EdgeInsets.all(20.3),
-                          child: (Text(
-                            "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 5,
-                            textAlign: TextAlign.center,
-                          )),
-                        )),
-                        Container(
-                          child: Icon(
-                            Icons.format_quote_outlined,
-                            color: Colors.yellow,
-                            size: 42,
-                          ),
-                        )
-                      ],
-                    ))),
+              Center(
+                child: TextButton(
+                    onPressed: () {
+                      print('text button pressed');
+                    },
+                    onLongPress: () {
+                      print("ji");
+                    },
+                    child: Text(
+                      'Text Button',
+                      style: TextStyle(color: Colors.red),
+                    )),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  print('Elevated button');
+                },
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.lightGreen)),
+                child: TextButton(
+                    onPressed: () {
+                      print('text button pressed');
+                    },
+                    onLongPress: () {
+                      print("ji");
+                    },
+                    child: Text(
+                      'Text Button',
+                      style: TextStyle(color: Colors.red),
+                    )),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print('Elevated 2 button');
+                },
+                // s
+                // resolveWith((states)=>states.contains(MaterialState.pressed)&&Color.purple)
 
-              // Container(
-              //   height: 60,
-              //   width: 60,
-              //   decoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(150),
-              //       image: DecorationImage(
-              //         image: AssetImage('image/mypic.jpg'),
-              //         fit: BoxFit.cover,
-              //       )),
-              // ),
-              // Text(
-              //   "Ali-Raza",
-              //   style: TextStyle(
-              //     fontSize: 18,
-              //     fontWeight: FontWeight.w800,
-              //     color: Colors.black38,
-              //     fontFamily: 'Quintessential',
-              //   ),
-              // ),
-              // Text(
-              //   "Software Engineer",
-              //   style: TextStyle(
-              //     fontSize: 18,
-              //     color: Colors.grey,
-              //     fontFamily: 'Quintessential',
-              //   ),
-              // ),
-              // Container(
-              //   height: 35,
-              //   width: 145,
-              //   decoration: BoxDecoration(
-              //     border: Border(
-              //       bottom: BorderSide(
-              //         width: 3.0,
-              //         color: Colors.yellow.shade200,
-              //       ),
-              //     ),
-              //     // color: Colors.white,
-              //   ),
-              // ),
-              // Container(
-              //   child: Icon(
-              //     Icons.format_quote_outlined,
-              //     color: Colors.yellow,
-              //     size: 42,
-              //   ),
-              // ),
-              // Container(
-              //     child: (Text(
-              //   "n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
-              //   textAlign: TextAlign.left,
-              //   overflow: TextOverflow.ellipsis,
-              //   maxLines: 3,
-              // ))),
-              // Container(
-              //   child: Icon(
-              //     Icons.format_quote_outlined,
-              //     color: Colors.yellow,
-              //     size: 42,
-              //   ),
-              // )
+                child: TextButton(
+                    onPressed: () {
+                      print('Elevated 2 button pressed');
+                    },
+                    onLongPress: () {
+                      print("Elevated 2 long button pressed");
+                    },
+                    child: Text(
+                      'Elevated 2 Button',
+                      style: TextStyle(color: Colors.blueGrey),
+                    )),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith((states) =>
+                      states.contains(MaterialState.pressed)
+                          ? Colors.red
+                          : Colors.white),
+                ),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  print('Outlined button ');
+                },
+                child: TextButton(
+                    onPressed: () {
+                      print('Elevated 2 button pressed');
+                    },
+                    onLongPress: () {
+                      print("Elevated 2 long button pressed");
+                    },
+                    child: Text(
+                      'Outlined button ',
+                      style: TextStyle(color: Colors.red),
+                    )),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith((states) =>
+                      states.contains(MaterialState.pressed)
+                          ? Colors.red
+                          : Colors.white),
+                ),
+              ),
+              IconButton(
+                onPressed: () => print("VOLUME"),
+                icon: Icon(Icons.volume_down_outlined),
+                color: Colors.purple,
+                iconSize: 28,
+              )
             ],
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // children: [
+            // SizedBox(
+            //   child: (Card(
+            //       color: Colors.white,
+            //       shadowColor: Colors.white,
+            //       child: Column(
+            //         children: [
+            //           Container(
+            //             height: 90,
+            //             width: 90,
+            //             margin: new EdgeInsets.symmetric(vertical: 15.0),
+            //             decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.circular(150),
+            //                 border: Border.all(
+            //                     color: Colors.cyan.shade800,
+            //                     width: 3 // red as border color
+            //                     ),
+            //                 image: DecorationImage(
+            //                   image: AssetImage('image/mypic.jpg'),
+            //                   fit: BoxFit.cover,
+            //                 )),
+            //           ),
+            //           Text(
+            //             "Ali-Raza",
+            //             style: TextStyle(
+            //               fontSize: 18,
+            //               fontWeight: FontWeight.w800,
+            //               color: Colors.black38,
+            //               fontFamily: 'Quintessential',
+            //             ),
+            //           ),
+            //           Text(
+            //             "Software Engineer",
+            //             style: TextStyle(
+            //               fontSize: 18,
+            //               color: Colors.grey,
+            //               fontFamily: 'Quintessential',
+            //             ),
+            //           ),
+            //           Container(
+            //             height: 35,
+            //             width: 145,
+            //             decoration: BoxDecoration(
+            //               border: Border(
+            //                 bottom: BorderSide(
+            //                   width: 3.0,
+            //                   color: Colors.yellow.shade200,
+            //                 ),
+            //               ),
+            //               // color: Colors.white,
+            //             ),
+            //           ),
+            //           Container(
+            //             child: Icon(
+            //               Icons.format_quote_outlined,
+            //               color: Colors.yellow,
+            //               size: 42,
+            //             ),
+            //           ),
+            //           Container(
+            //               child: Padding(
+            //             padding: const EdgeInsets.all(20.3),
+            //             child: (Text(
+            //               "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
+            //               overflow: TextOverflow.ellipsis,
+            //               maxLines: 5,
+            //               textAlign: TextAlign.center,
+            //             )),
+            //           )),
+            //           Container(
+            //             child: Icon(
+            //               Icons.format_quote_outlined,
+            //               color: Colors.yellow,
+            //               size: 42,
+            //             ),
+            //           )
+            //         ],
+            //       ))),
+            // ),
+
+            // Container(
+            //   height: 60,
+            //   width: 60,
+            //   decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(150),
+            //       image: DecorationImage(
+            //         image: AssetImage('image/mypic.jpg'),
+            //         fit: BoxFit.cover,
+            //       )),
+            // ),
+            // Text(
+            //   "Ali-Raza",
+            //   style: TextStyle(
+            //     fontSize: 18,
+            //     fontWeight: FontWeight.w800,
+            //     color: Colors.black38,
+            //     fontFamily: 'Quintessential',
+            //   ),
+            // ),
+            // Text(
+            //   "Software Engineer",
+            //   style: TextStyle(
+            //     fontSize: 18,
+            //     color: Colors.grey,
+            //     fontFamily: 'Quintessential',
+            //   ),
+            // ),
+            // Container(
+            //   height: 35,
+            //   width: 145,
+            //   decoration: BoxDecoration(
+            //     border: Border(
+            //       bottom: BorderSide(
+            //         width: 3.0,
+            //         color: Colors.yellow.shade200,
+            //       ),
+            //     ),
+            //     // color: Colors.white,
+            //   ),
+            // ),
+            // Container(
+            //   child: Icon(
+            //     Icons.format_quote_outlined,
+            //     color: Colors.yellow,
+            //     size: 42,
+            //   ),
+            // ),
+            // Container(
+            //     child: (Text(
+            //   "n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
+            //   textAlign: TextAlign.left,
+            //   overflow: TextOverflow.ellipsis,
+            //   maxLines: 3,
+            // ))),
+            // Container(
+            //   child: Icon(
+            //     Icons.format_quote_outlined,
+            //     color: Colors.yellow,
+            //     size: 42,
+            //   ),
+            // )
+            // ],
           ),
         ),
+        floatingActionButton:FloatingActionButton(
+          onPressed: ()=>print("hello"),
+          child: Icon(Icons.add),
+          splashColor: Colors.grey,
+          backgroundColor: Colors.purpleAccent,
+        ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+            // IconButton(icon: Icon(Icons.add),
+            //     iconSize: 48,
+            //
+            //     onPressed: () => print("-----")),
 
         // backgroundColor: Colors.black,
         // body: SafeArea(
