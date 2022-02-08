@@ -26,33 +26,35 @@ class MyBulb extends StatefulWidget {
 }
 
 class _MyBulbState extends State<MyBulb> {
-  bool isTurnOn=false;
+  bool isTurnOn = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-       appBar: AppBar(
-         title:Text('Glowing') ,
-         backgroundColor: Colors.lightBlueAccent,
-         centerTitle: true,
-
-       ),
+        appBar: AppBar(
+          title: Text('Glowing'),
+          backgroundColor: Colors.lightBlueAccent,
+          centerTitle: true,
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Center(
-              child: Icon(isTurnOn?Icons.lightbulb:Icons.lightbulb_outlined,
+              child: Icon(
+                isTurnOn ? Icons.lightbulb : Icons.lightbulb_outlined,
                 size: 150,
-                color: isTurnOn?Colors.limeAccent:null,
+                color: isTurnOn ? Colors.limeAccent : null,
               ),
             ),
-            ElevatedButton(onPressed: (){
-              print('button Pressed');
-              setState(() {
-                isTurnOn=!isTurnOn;
-              });
-            }, child: Text(!isTurnOn?'Turn On':'Turn Off'))
+            ElevatedButton(
+                onPressed: () {
+                  print('button Pressed');
+                  setState(() {
+                    isTurnOn = !isTurnOn;
+                  });
+                },
+                child: Text(!isTurnOn ? 'Turn On' : 'Turn Off'))
           ],
         ),
       ),
